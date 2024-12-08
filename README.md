@@ -7,16 +7,16 @@ The first part focuses on improving the efficiency of the Vision Mamba model. Th
 ## 2. OpenAI CLIP-L (ViT-L/14) Efficiency Improvement
 The second part of the project is focused on enhancing the efficiency of VILA, a vision-language model, specifically [OpenAI CLIP-L(ViT-L/14)] (https://huggingface.co/openai/clip-vit-large-patch14). The objective is to optimize the training process and improve both the computational efficiency and model performance.
 
-**Overview of Folders:**  
+### **Overview of Folders:**  
 * ```Part_1_and_2```: Contains the code, utility files, and the Vision Mamba block used to improve the training efficiency on the [Cats vs Dogs - 2000 images (224x224)] (https://www.kaggle.com/datasets/abhinavnayak/catsvdogs-transformed/data).
 * ```Part_3_and_4```: Contains the code applied to the [Kaggle Clothes Image Classifier] (https://www.kaggle.com/code/marissafernandes/clothes-image-classifier/notebook) dataset to improve the efficiency of [OpenAI CLIP-L(ViT-L/14)] (https://huggingface.co/openai/clip-vit-large-patch14).
   
-**Workflow for Vision Mamba Efficiency Improvement:**
+### **Workflow for Vision Mamba Efficiency Improvement:**
 
 ![cats_dog_experiment](https://github.com/user-attachments/assets/45d04ef0-3f07-4588-817d-fdf351353e98)
 
 
-**Workflow for OpenAI CLIP-L (ViT-L/14) Efficiency Improvement:**
+### **Workflow for OpenAI CLIP-L (ViT-L/14) Efficiency Improvement:**
 
 ![Vila_work_flow_Mani](https://github.com/user-attachments/assets/56aed1f0-26f9-4f4a-b21b-fc8f3c763622)
 
