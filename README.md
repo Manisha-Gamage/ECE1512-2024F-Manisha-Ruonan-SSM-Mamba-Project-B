@@ -13,7 +13,11 @@ The second part of the project is focused on enhancing the efficiency of VILA, a
   
 **Workflow for Vision Mamba Efficiency Improvement:**
 
-(Insert Workflow Diagram Here)
+![cats_dog_experiment](https://github.com/user-attachments/assets/45d04ef0-3f07-4588-817d-fdf351353e98)
+
+
 **Workflow for OpenAI CLIP-L (ViT-L/14) Efficiency Improvement:**
-(Insert Workflow Diagram Here)
+
+![Vila_work_flow_Mani](https://github.com/user-attachments/assets/56aed1f0-26f9-4f4a-b21b-fc8f3c763622)
+
 
