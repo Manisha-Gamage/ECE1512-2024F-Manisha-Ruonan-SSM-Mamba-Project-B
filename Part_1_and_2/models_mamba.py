@@ -61,6 +61,24 @@ class PatchEmbed(nn.Module):
             x = x.flatten(2).transpose(1, 2)  # BCHW -> BNC
         x = self.norm(x)
         return x
+
+    # def forward(self, x):
+    #     B, C, H, W = x.shape
+    #     assert H == self.img_size[0] and W == self.img_size[1], \
+    #         f"Input image size ({H}*{W}) doesn't match model ({self.img_size[0]}*{self.img_size[1]})."
+        
+    #     x = self.proj(x)
+
+    #     # Drop patches based on drop_patch_prob
+    #     if self.drop_patch_prob > 0.0:
+    #         patch_mask = torch.rand(x.shape[2], device=x.device) > self.drop_patch_prob
+    #         x = x[:, :, patch_mask, :]  # Apply the mask (drop patches)
+
+    #     if self.flatten:
+    #         x = x.flatten(2).transpose(1, 2)  # BCHW -> BNC
+        
+    #     x = self.norm(x)
+    #     return x
     
 
 class Block(nn.Module):
@@ -231,15 +249,16 @@ class VisionMamba(nn.Module):
                  img_size=224, 
                  patch_size=16, 
                  stride=16,
-                 depth=24, 
-                 embed_dim=192, 
+                 depth=1,#24, 
+                 embed_dim=2,#192, 
                  d_state=16,
-                 channels=3, #1, 
-                 num_classes=1000,
+                 channels=3,
+                 num_classes= 1, #1000,
                  ssm_cfg=None, 
                  drop_rate=0.,
                  drop_path_rate=0.1,
-                 norm_epsilon: float = 1e-5, 
+                 # weight_decay=0.01,  # weight decay (L2 regularization)
+                 norm_epsilon: float = 0.01,#1e-5, 
                  rms_norm: bool = True, 
                  initializer_cfg=None,
                  fused_add_norm=True,
@@ -261,6 +280,7 @@ class VisionMamba(nn.Module):
                  init_layer_scale=None,
                  use_double_cls_token=False,
                  use_middle_cls_token=True,
+                 # drop_patch_prob=0.5,
                  **kwargs):
         factory_kwargs = {"device": device, "dtype": dtype}
         # add factory_kwargs into kwargs
@@ -308,7 +328,7 @@ class VisionMamba(nn.Module):
                 pt_seq_len=pt_hw_seq_len,
                 ft_seq_len=hw_seq_len
             )
-        self.head = nn.Linear(self.num_features, num_classes) if num_classes > 0 else nn.Identity()
+        self.head = nn.Linear(self.num_features, self.num_classes) #self.head = nn.Linear(self.num_features, num_classes) if num_classes > 0 else nn.Identity()
 
 
         # TODO: release this comment
